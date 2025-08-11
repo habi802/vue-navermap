@@ -19,7 +19,7 @@ const state = reactive({
         '경상북도 울진군 온정면 외선미1길 70',
         '경기도 부천시 안곡로149번길 5(괴안동)',
         '경상남도 산청군 시천면 지리산대로 520',
-        'asdf'
+        'asdf' // 안 되는 거 볼려고 넣었음
     ]
 });
 
@@ -29,7 +29,7 @@ let marker = null; // 지도에 마커를 찍기 위한 변수
 onMounted(() => {
     // 화면 마운트 시 지도가 그려지고,
     // 지도 중심에 마커를 찍음
-    const map = new naver.maps.Map('map', {
+    map = new naver.maps.Map('map', {
         center: new naver.maps.LatLng(37.5665, 126.9780),
         zoom: 10,
     });
@@ -57,7 +57,7 @@ watch(() => state.data, async address => {
             // 지도를 검색한 주소의 좌표값으로 이동시키고,
             // 마커도 그 좌표값으로 옮긴다.
             map.setCenter(position);
-            marker.setPosition(position);
+            marker.setPosition(position);     
         } catch (e) {
             console.log(e.message);
         }
